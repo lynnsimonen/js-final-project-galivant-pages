@@ -1,0 +1,210 @@
+<template>
+  <div class="container-fluid page-body ">
+    <h1 class="title pt-2">Tell Your Story...</h1>
+    <div class="row m-4 justify-content-center">
+
+      <!-- Loop through trips to create cards -->
+      <div class="card .col-sm-6  .col-2 col-lg-2 m-3 "
+           style="width: 18rem;"
+           :key="item.key"
+           :item="item"
+           v-for="item in trips">
+        <div class="card-body">
+          <h4 class="card-title">
+            {{ item.title }}
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ item.arrivalDate }} - {{ item.returnDate }}
+          </h6>
+
+          <button class="btn-outline-secondary">
+            Trip Details
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+import TravelEvent from "@/models/travel-event-model";
+//import TripDetails from "@/components/TripDetails.vue";
+import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
+import * as item from "../models/trip-model";
+
+export default {
+  name: "TripItemList",
+  computed: {
+    item() {
+      return item
+    }
+  },
+  emits: "delete-it",
+  props: {
+    type: TravelEvent
+  },
+  components: {},
+  data() {
+    return {
+      //filteredTrips: [...this],
+      keyword: '',
+      trips: [
+        new TravelEvent(new EventTrip('France Family Trip - 2018',
+            'France was great. France was great.  France was great.  France was great.  France was great.  France was great.  France was great.',
+            '03/27/2018',
+            '04/02/2018',
+            '1',
+            true,
+            [new PhotoGroup
+            ('Day One',
+                [new Photo('src/images/FR_01.JPG', 'caption-one'),
+                  new Photo('src/images/FR_02.JPG', 'caption-one'),
+                ]),
+              new PhotoGroup
+              ('Day Two',
+                  [new Photo('src/images/FR_03.JPG', 'caption-one'),
+                    new Photo('src/images/FR_Eiffel.jpg', 'caption-one'),
+                  ]),
+              new PhotoGroup
+              ('Day Three',
+                  [new Photo('src/images/FR_Monet.jpg', 'caption-one'),
+                    new Photo('src/images/FR_Nrmdy.jpg', 'caption-one'),
+                  ]), //end last photoGroupArray
+
+            ], //end new PhotoGroup
+        )),//end new TravelEvent
+
+        new TravelEvent(new EventTrip('Southern Family Trip - 2019',
+            'Trip was great',
+            '03/24/2019',
+            '04/15/2019',
+            '2',
+            false,
+            [new PhotoGroup
+            ('Day 1',
+                [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                  new Photo('src/images/CR_02.JPG', 'caption-two'),
+                  new Photo('src/images/CR_03.JPG', 'caption-three')
+                ])
+            ]
+        )),
+
+        new TravelEvent(new EventTrip('Island Family Trip - 2021',
+            'We had fun',
+            '07/09/2021',
+            '07/19/2021',
+            '3',
+            true
+        )),
+        new TravelEvent(new EventTrip('Western Family Trip - 2015',
+            'Trip was great',
+            '03/24/2015',
+            '04/02/2015',
+            'd',
+            true
+        )),
+        new TravelEvent(new EventTrip('Eastern Family Trip - 2016',
+            'Trip was great',
+            '03/24/2016',
+            '04/02/2016',
+            '4',
+            false
+        )),
+      ],
+    }
+  },
+  methods: {
+    deleteIt(item) {
+      //item.$emit('remove-trip', item);
+      this.trips.splice(this.trips.indexOf(item), 1);
+    },
+
+    addTrip() {
+      this.trips.push(this.newTrip);
+      //clear the form
+      this.newTrip = {
+        title: '',
+        tripDescription: '',
+        arrivalDate: '',
+        returnDate: '',
+        key: '',
+        favorite: false,
+      }
+    },
+
+    sort(property) {
+      console.log('sorting by', property);
+      if (property === 'title') {
+        this.trips.sort((a, b) => {
+          if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1;
+          } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+            return 1;
+          }
+          console.log('sorting by', property);
+          return 0;
+        })
+      } else if (property === 'returnDate') {
+        this.trips.sort((a, b) => {
+          console.log('sorting by', property);
+          return new Date(a.returnDate) - new Date(b.returnDate);
+        })
+      } else if (property === 'favorite') {
+        this.trips.sort((a, b) => {
+          if (a.favorite === true && b.favorite === false) {
+            return -1;
+          } else if (a.favorite === false && b.favorite === true) {
+            return 1;
+          }
+          console.log(a, property);
+          return 0;
+        })
+        // for (key in trips) {
+        //   if( this.item.favorite) {
+        //     $('#all #'+currency).show()
+        //   } else {
+        //     $('#all li:not(#'+currency+')').hide();
+        //   }
+        // }
+      }
+    },
+
+    search() {
+      let keyword = '';
+      if (keyword) {
+        return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
+            || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
+      }
+
+    },
+  },
+}
+
+</script>
+
+<style lang="scss">
+.page-body {
+  .title {
+    //font-family: 'Inter', sans-serif;
+    font-family: 'Pacifico', cursive;
+    //font-family: 'Philosopher', sans-serif;
+    font-size: 30px;
+    color: rgba(1, 1, 1, 50);
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  li {
+    //font-family: 'Inter', sans-serif;
+    font-family: 'Pacifico', cursive;
+    //font-family: 'Philosopher', sans-serif;
+    font-size: 15px;
+    color: #39c3fc;
+    display: flex;
+    justify-content: start;
+  }
+
+}
+</style>
