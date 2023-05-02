@@ -4,14 +4,14 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/Galivant-girl_150x150.jpg" width="150" height="150" alt="">
       </a>
-      <div><span class="gal">GALivant</span><br>
+      <div><span class="gal">GAL<i class="bi bi-flower3"></i>livant</span><br>
         <span class="sub-gal">gals sharing their travel adventures</span><br>
         <span class="sub-gal2">memories • itineraries • photos • travel ideas</span>
       </div>
       <div class="dropdown dropstart">
         <button class="btn btn-outline-secondary dropdown-toggle border-0 p-1 m-5 " type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person-circle fs-1" style="color: #010101;" alt="circle person account"></i>
+          <i class="bi bi-person-circle fs-1" style="color: rgba(116,116,116);" alt="circle person account"></i>
         </button>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Sign In</a></li>
@@ -40,27 +40,36 @@ export default {
 <style lang="scss">
 nav {
   background-color: #e6e6e6;
-  color: #b27946;
+  color: black;
 
   .gal {
-    /*font-family: 'Inter', sans-serif;*/
-    /*font-family: 'Pacifico', cursive;*/
-    font-family: 'Philosopher', sans-serif;
-    font-size: 40px;
+    //font-family: 'Inter', sans-serif;
+    //font-family: 'Pacifico', cursive;
+    //font-family: 'Philosopher', sans-serif;
+    //font-family: 'Josefin Sans', sans-serif;
+    //font-family: 'Sen', sans-serif;
+    font-family: 'Heebo', sans-serif;
+    font-size: 50px;
+    //color: #92e0c0;
+    color: rgba(116,116,116);
   }
 
   .sub-gal {
-    /*font-family: 'Inter', sans-serif;*/
-    font-family: 'Pacifico', cursive;
+    //font-family: 'Inter', sans-serif;
+    //font-family: 'Pacifico', cursive;
     //font-family: 'Philosopher', sans-serif;
+    //font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-size: 20px;
-    color: #010101;
+    color: rgba(116,116,116);
   }
 
   .sub-gal2 {
-    /*font-family: 'Inter', sans-serif;*/
+    //font-family: 'Inter', sans-serif;
     //font-family: 'Pacifico', cursive;
-    font-family: 'Philosopher', sans-serif;
+    //font-family: 'Philosopher', sans-serif;
+    //font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-size: 15px;
 
   }
@@ -71,26 +80,4 @@ nav {
   }
 }
 
-.page-body {
-  .title {
-    //font-family: 'Inter', sans-serif;
-    font-family: 'Pacifico', cursive;
-    //font-family: 'Philosopher', sans-serif;
-    font-size: 30px;
-    color: rgba(1, 1, 1, 50);
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  li {
-    //font-family: 'Inter', sans-serif;
-    font-family: 'Pacifico', cursive;
-    //font-family: 'Philosopher', sans-serif;
-    font-size: 15px;
-    color: #39c3fc;
-    display: flex;
-    justify-content: start;
-  }
-
-}
 </style>

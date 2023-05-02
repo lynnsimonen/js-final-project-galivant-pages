@@ -1,6 +1,15 @@
 <template>
   <div class="container-fluid page-body ">
-    <h1 class="title pt-2">Tell Your Story...</h1>
+    <div row justify-content-center>
+      <h1 class="title pt-2">Tell Your Story...</h1>
+    </div>
+    <div row justify-content-end>
+      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
+              type="button"><i class="bi bi-plus-circle"></i></button>
+      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
+              type="button"><i class="bi bi-filter-circle"></i></button>
+    </div>
+
     <div class="row m-4 justify-content-center">
 
       <!-- Loop through trips to create cards -->
@@ -9,19 +18,50 @@
            :key="item.key"
            :item="item"
            v-for="item in trips">
-        <div class="card-body">
-          <h4 class="card-title">
-            {{ item.title }}
-          </h4>
-          <h6 class="card-subtitle mb-2 text-muted">
-            {{ item.arrivalDate }} - {{ item.returnDate }}
-          </h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="card-body">
+              <h4 class="card-title">
+                {{ item.title }}
+              </h4>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ item.arrivalDate }} - {{ item.returnDate }}
+              </h6>
 
-          <button class="btn-outline-secondary">
-            Trip Details
-          </button>
+              <!--TODO: CLICK to see This Trip's Details (bind the trip's key?)-->
+              <button
+                  class="btn-outline-secondary"
+              >
+                <!--1. v-on:click="... switch to Trip Details page"-->
+                <!--2. bind to key? fill data onto page"-->
+                Trip Details
+              </button>
 
-        </div>
+            </div>
+          </li>
+          <li class="list-group-item justify-content-around">
+            <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
+                    type="button"><i class="bi bi-hand-thumbs-up-fill">
+               <span class="p-2translate-middle badge rounded-pill bg-secondary">
+                 5
+                <span class="visually-hidden"># of likes this trip has</span>
+                </span>
+            </i></button>
+            <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="heart favorite"
+                    type="button"><i class="bi bi-heart-fill">
+               <span class="p-2translate-middle badge rounded-pill bg-secondary">
+                 12
+                <span class="visually-hidden"># of likes this trip has</span>
+                </span>
+            </i></button>
+            <div class="form-check my-1 align-items-center mt-2" style="color: #010101;">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Private
+              </label>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -116,6 +156,7 @@ export default {
     }
   },
   methods: {
+
     deleteIt(item) {
       //item.$emit('remove-trip', item);
       this.trips.splice(this.trips.indexOf(item), 1);
@@ -188,20 +229,24 @@ export default {
 .page-body {
   .title {
     //font-family: 'Inter', sans-serif;
-    font-family: 'Pacifico', cursive;
+    //font-family: 'Pacifico', cursive;
     //font-family: 'Philosopher', sans-serif;
+    //font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-size: 30px;
-    color: rgba(1, 1, 1, 50);
+    color: rgba(116,116,116);
     margin-top: 30px;
     margin-bottom: 30px;
   }
 
   li {
     //font-family: 'Inter', sans-serif;
-    font-family: 'Pacifico', cursive;
+    //font-family: 'Pacifico', cursive;
     //font-family: 'Philosopher', sans-serif;
+    //font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-size: 15px;
-    color: #39c3fc;
+    color: rgba(116,116,116);
     display: flex;
     justify-content: start;
   }
