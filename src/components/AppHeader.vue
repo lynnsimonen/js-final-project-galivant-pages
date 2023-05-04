@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/Galivant-girl_150x150.jpg" width="150" height="150" alt="">
       </a>
-      <div><span class="gal">GAL<i class="bi bi-flower3"></i>livant</span><br>
+      <div><span class="gal">GAL<i class="bi bi-flower3"></i>LIVANT</span><br>
         <span class="sub-gal">gals sharing their travel adventures</span><br>
         <span class="sub-gal2">memories • itineraries • photos • travel ideas</span>
       </div>
@@ -16,7 +16,7 @@
         <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Sign In</a></li>
           <li><a class="dropdown-item" href="#">Sign Up</a></li>
-          <li><a class="dropdown-item" href="#">My GALavant</a></li>
+          <li><a class="dropdown-item" href="#">My Gal<i class="bi bi-flower3"></i>lavant</a></li>
           <li><a class="dropdown-item" href="#">My Favorites</a></li>
           <li><a class="dropdown-item" href="#">Account & Settings</a></li>
           <li>
@@ -27,7 +27,6 @@
       </div>
     </div>
   </nav>
-
 </template>
 
 <script>
@@ -50,8 +49,8 @@ nav {
     //font-family: 'Sen', sans-serif;
     font-family: 'Heebo', sans-serif;
     font-size: 50px;
-    //color: #92e0c0;
-    color: rgba(116,116,116);
+    color: #92e0c0;
+    //color: rgba(116,116,116);
   }
 
   .sub-gal {

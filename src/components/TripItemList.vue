@@ -3,52 +3,56 @@
     <div row justify-content-center>
       <h1 class="title pt-2">Tell Your Story...</h1>
     </div>
+    <!-- LOOP THROUGH TRIPS TO CREATE CARDS -->
+    <!--      <TripCard v-bind:trips="trips"></TripCard>-->
     <div row justify-content-end>
-      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
+      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;" alt="add trip"
               type="button"><i class="bi bi-plus-circle"></i></button>
-      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
+      <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;" alt="filter list"
               type="button"><i class="bi bi-filter-circle"></i></button>
     </div>
-
     <div class="row m-4 justify-content-center">
-
-      <!-- Loop through trips to create cards -->
       <div class="card .col-sm-6  .col-2 col-lg-2 m-3 "
            style="width: 18rem;"
            :key="item.key"
-           :item="item"
            v-for="item in trips">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="card-body">
-              <h4 class="card-title">
-                {{ item.title }}
-              </h4>
+
+              <!-- put a star here if the favorite input star is checked -->
+              <div class="d-inline-flex">
+                <i class="bi bi-star-fill "
+                   v-bind:class="isFavorite === item.favorite ? 'white' : 'yellow'"
+                   name="star"></i>
+                <h4 class="card-title">
+                  {{ item.title }}
+                </h4>
+              </div>
               <h6 class="card-subtitle mb-2 text-muted">
                 {{ item.arrivalDate }} - {{ item.returnDate }}
               </h6>
 
               <!--TODO: CLICK to see This Trip's Details (bind the trip's key?)-->
-              <button
-                  class="btn-outline-secondary"
-              >
-                <!--1. v-on:click="... switch to Trip Details page"-->
-                <!--2. bind to key? fill data onto page"-->
+              <router-link
+                  v-if="item.key"
+                  to="/trip-details"
+                :key="item.key">
                 Trip Details
-              </button>
+              </router-link>
 
             </div>
           </li>
           <li class="list-group-item justify-content-around">
             <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="thumb like"
-                    type="button"><i class="bi bi-hand-thumbs-up-fill">
+                    type="button"><i class="bi bi-hand-thumbs-up">
                <span class="p-2translate-middle badge rounded-pill bg-secondary">
                  5
                 <span class="visually-hidden"># of likes this trip has</span>
                 </span>
             </i></button>
             <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;;" alt="heart favorite"
-                    type="button"><i class="bi bi-heart-fill">
+                    type="button"><i class="bi bi-heart">
                <span class="p-2translate-middle badge rounded-pill bg-secondary">
                  12
                 <span class="visually-hidden"># of likes this trip has</span>
@@ -70,24 +74,19 @@
 
 <script>
 import TravelEvent from "@/models/travel-event-model";
-//import TripDetails from "@/components/TripDetails.vue";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
-import * as item from "../models/trip-model";
-
+//import TripDetails from "@/components/TripDetails.vue";
 export default {
   name: "TripItemList",
-  computed: {
-    item() {
-      return item
-    }
-  },
   emits: "delete-it",
   props: {
     type: TravelEvent
+    //TravelEvent: Array
   },
   components: {},
   data() {
     return {
+      isFavorite: false,
       //filteredTrips: [...this],
       keyword: '',
       trips: [
@@ -156,25 +155,6 @@ export default {
     }
   },
   methods: {
-
-    deleteIt(item) {
-      //item.$emit('remove-trip', item);
-      this.trips.splice(this.trips.indexOf(item), 1);
-    },
-
-    addTrip() {
-      this.trips.push(this.newTrip);
-      //clear the form
-      this.newTrip = {
-        title: '',
-        tripDescription: '',
-        arrivalDate: '',
-        returnDate: '',
-        key: '',
-        favorite: false,
-      }
-    },
-
     sort(property) {
       console.log('sorting by', property);
       if (property === 'title') {
@@ -202,27 +182,17 @@ export default {
           console.log(a, property);
           return 0;
         })
-        // for (key in trips) {
-        //   if( this.item.favorite) {
-        //     $('#all #'+currency).show()
-        //   } else {
-        //     $('#all li:not(#'+currency+')').hide();
-        //   }
-        // }
       }
     },
-
     search() {
       let keyword = '';
       if (keyword) {
         return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
             || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
       }
-
     },
   },
 }
-
 </script>
 
 <style lang="scss">
@@ -233,8 +203,8 @@ export default {
     //font-family: 'Philosopher', sans-serif;
     //font-family: 'Josefin Sans', sans-serif;
     font-family: 'Sen', sans-serif;
-    font-size: 30px;
-    color: rgba(116,116,116);
+    font-size: 20px;
+    color: rgba(116, 116, 116);
     margin-top: 30px;
     margin-bottom: 30px;
   }
@@ -246,10 +216,9 @@ export default {
     //font-family: 'Josefin Sans', sans-serif;
     font-family: 'Sen', sans-serif;
     font-size: 15px;
-    color: rgba(116,116,116);
+    color: rgba(116, 116, 116);
     display: flex;
     justify-content: start;
   }
-
 }
 </style>

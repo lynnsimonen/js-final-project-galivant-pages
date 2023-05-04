@@ -27,14 +27,11 @@ footer {
   left: 0;
   width: 100%;
 
-div {
-  display: flex;
-  justify-content: center;
-  height: 40px;
-  flex-direction: column;
+  div {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    flex-direction: column;
+  }
 }
-
-}
-
-
 </style>
