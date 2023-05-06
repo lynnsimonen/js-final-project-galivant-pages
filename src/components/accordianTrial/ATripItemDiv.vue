@@ -2,7 +2,7 @@
 
   <p>ATripItemDiv: THIS IS IN THE V-SHOW DIV</p>
 
-<!--  <button :trips="trips" @click="showDiv = !showDiv">A Show B</button>-->
+  <!--  <button :trips="trips" @click="showDiv = !showDiv">A Show B</button>-->
 
   <b-trips-div :trips="trips"></b-trips-div>
 
@@ -10,7 +10,7 @@
 
 <script>
 import TravelEvent from "@/models/travel-event-model";
-import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
+import {ArrayOfPhotoGroups, ArrayOfPhotos, EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
 import BTripsDiv from "@/components/accordianTrial/BTripsDiv.vue";
 //import TripDetails from "@/components/TripDetails.vue";
 export default {
@@ -34,23 +34,38 @@ export default {
             '04/02/2018',
             '1',
             true,
-            [new PhotoGroup
+            [new ArrayOfPhotoGroups [new PhotoGroup
             ('Day One',
-                [new Photo('src/images/FR_01.JPG', 'caption-one'),
-                  new Photo('src/images/FR_02.JPG', 'caption-one'),
-                ]),
-              new PhotoGroup
-              ('Day Two',
-                  [new Photo('src/images/FR_03.JPG', 'caption-one'),
-                    new Photo('src/images/FR_Eiffel.jpg', 'caption-one'),
-                  ]),
-              new PhotoGroup
-              ('Day Three',
-                  [new Photo('src/images/FR_Monet.jpg', 'caption-one'),
-                    new Photo('src/images/FR_Nrmdy.jpg', 'caption-one'),
-                  ]), //end last photoGroupArray
+                [new ArrayOfPhotos
+                (
+                    [new Photo('src/images/FR_01.JPG', 'caption-one')],
+                    [new Photo('src/images/FR_02.JPG', 'caption-one')],
+                    [new Photo('src/images/FR_03.JPG', 'caption-one')],
+                    [new Photo('src/images/FR_Eiffel.jpg', 'caption-one')],
+                )
+                ]
+            )
+                ],
 
-            ], //end new PhotoGroup
+              [new PhotoGroup
+              ('Day Two',
+                  [new ArrayOfPhotos
+                  (
+                      [new Photo('src/images/FR_03.JPG', 'caption-one')],
+                      [new Photo('src/images/FR_Eiffel.jpg', 'caption-one')]
+                  )
+                  ])],
+
+              [new PhotoGroup
+              ('Day Three',
+                  [new ArrayOfPhotos
+                  (
+                      [new Photo('src/images/FR_Monet.jpg', 'caption-one')],
+                      [new Photo('src/images/FR_Nrmdy.jpg', 'caption-one')],
+                  )
+                  ])]
+
+            ] //end of arrayOfPhotoGroups
         )),//end new TravelEvent
 
         new TravelEvent(new EventTrip('Southern Family Trip - 2019',
