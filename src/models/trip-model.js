@@ -36,4 +36,3 @@ function Photo(photoFilePath, photoCaption){   //this will auto-label the photos
 }
 
 export {EventTrip, PhotoGroup, Photo};
-

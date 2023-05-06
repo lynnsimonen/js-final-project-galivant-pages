@@ -15,10 +15,10 @@
     </div>
 
     <div class="container m-2 row justify-content-center">
-      <div class="row align-items-start m-2" style="height: 300px">
+      <div class="row justify-content-center m-2">
         <div class="col">
           <ul class="list-group list-group-flush m-2">
-            <li class="list-group-item d-flex justify-content-start">
+            <li class="list-group-item ">
               <!-- {{item.arrivalDate - item.returnDate}} {{ lengthOfTrip(item) }} days-->
               <div>
                 <span class="label">Our Trip Dates: </span><span class="info">07/08/2008 - 07/16/2008</span>
@@ -34,7 +34,7 @@
               <div>
                 <div class="label">Trip Notes & Memories:</div>
                 <!--{{ item.tripDescription }}-->
-                <p class="info-notes justify-content-start .text-truncate inline-block">item.tripDescription...
+                <p class="info-notes text .text-truncate inline-block">item.tripDescription...
                   This will wrap and contain details that the user would like to use to identify their trip.</p>
               </div>
             </li>
@@ -154,8 +154,13 @@ export default {
   //components: {EventTrip},
   props: {
     trip: Object
+    //['trips'],
   },
-//['trips'],
+  data(){
+    return{
+      photoGroups:[],
+    }
+  },
   methods: {
     deleteItem(item) {
       //item.$emit('remove-trip', item);
@@ -254,4 +259,5 @@ export default {
     justify-content: start;
   }
 }
+
 </style>

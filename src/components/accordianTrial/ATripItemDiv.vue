@@ -1,31 +1,29 @@
 <template>
-  <div class="container-fluid page-body ">
-    <div row justify-content-center>
-      <h1 class="title pt-2">Tell Your Story...</h1>
-    </div>
 
-    <!-- LOOP THROUGH TRIPS TO CREATE CARDS -->
-    <!--      <TripCard v-bind:trips="trips"></TripCard>-->
-        <TripCard :trips="trips">
-        </TripCard>
-  </div>
+  <p>ATripItemDiv: THIS IS IN THE V-SHOW DIV</p>
+
+<!--  <button :trips="trips" @click="showDiv = !showDiv">A Show B</button>-->
+
+  <b-trips-div :trips="trips"></b-trips-div>
+
 </template>
 
 <script>
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
-import TripCard from "@/components/TripCard.vue";
+import BTripsDiv from "@/components/accordianTrial/BTripsDiv.vue";
 //import TripDetails from "@/components/TripDetails.vue";
 export default {
-  name: "TripItemList",
+  name: "ATripItemDiv",
   emits: "delete-it",
   props: {
     type: TravelEvent
     //TravelEvent: Array
   },
-  components: {TripCard},
+  components: {BTripsDiv},
   data() {
     return {
+      showDiv: true,
       isFavorite: false,
       //filteredTrips: [...this],
       keyword: '',
@@ -135,30 +133,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.page-body {
-  .title {
-    //font-family: 'Inter', sans-serif;
-    //font-family: 'Pacifico', cursive;
-    //font-family: 'Philosopher', sans-serif;
-    //font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Sen', sans-serif;
-    font-size: 20px;
-    color: rgba(116, 116, 116);
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
+<style scoped>
 
-  li {
-    //font-family: 'Inter', sans-serif;
-    //font-family: 'Pacifico', cursive;
-    //font-family: 'Philosopher', sans-serif;
-    //font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Sen', sans-serif;
-    font-size: 15px;
-    color: rgba(116, 116, 116);
-    display: flex;
-    justify-content: start;
-  }
-}
 </style>

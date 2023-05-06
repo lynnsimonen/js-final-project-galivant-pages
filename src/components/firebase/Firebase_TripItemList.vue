@@ -3,27 +3,24 @@
     <div row justify-content-center>
       <h1 class="title pt-2">Tell Your Story...</h1>
     </div>
-
     <!-- LOOP THROUGH TRIPS TO CREATE CARDS -->
     <!--      <TripCard v-bind:trips="trips"></TripCard>-->
-        <TripCard :trips="trips">
-        </TripCard>
+    <firebase_-trip-card/>
   </div>
 </template>
 
 <script>
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
-import TripCard from "@/components/TripCard.vue";
 //import TripDetails from "@/components/TripDetails.vue";
 export default {
-  name: "TripItemList",
+  name: "Firebase_TripItemList",
   emits: "delete-it",
   props: {
     type: TravelEvent
     //TravelEvent: Array
   },
-  components: {TripCard},
+  components: {},
   data() {
     return {
       isFavorite: false,

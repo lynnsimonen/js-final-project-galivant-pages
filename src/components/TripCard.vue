@@ -1,7 +1,7 @@
 <template>
   <div row justify-content-end>
-    <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;" alt="thumb like"
-            type="button"><i class="bi bi-plus-circle"></i></button>
+    <button class="btn btn-outline-secondary" style="color: #010101;" alt="thumb like"
+            type="button">Add New Trip</button>
     <button class="btn btn-outline-secondary border-0 p-1 m-1 " style="color: #010101;" alt="thumb like"
             type="button"><i class="bi bi-filter-circle"></i></button>
   </div>
@@ -29,13 +29,13 @@
             </h6>
 
             <!--TODO: CLICK to see This Trip's Details (bind the trip's key?)-->
-            <router-link v-if="item.key"
-                class="btn-outline-secondary"
-                to="/trip-details"
-                :key="item.key"
-            >
+
+<!--            <button>-->
+<!--              <trip-details :trip="trip"></trip-details>-->
+<!--            </button>-->
+
+
               Trip Details
-            </router-link>
 
           </div>
         </li>
@@ -67,18 +67,21 @@
 </template>
 
 <script>
-import {EventTrip} from "@/models/trip-model";
+//import {EventTrip} from "@/models/trip-model";
 import router from "@/router";
+//import TripDetails from "@/components/TripDetails.vue";
 
 export default {
   name: "TripCard",
-  methods: {EventTrip, router},
+  components: {},
+  methods: {router},
   props:
-      {trips: Object},
+      {trips: []},
   //['trips'],
   data() {
     return {
-      isFavorite: false
+      isFavorite: false,
+      trip: Object
     }
   },
   Method: {

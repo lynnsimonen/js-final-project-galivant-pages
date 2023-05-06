@@ -1,22 +1,24 @@
 <template>
-  <AppHeader/>
+
+<!--<MainPage></MainPage>-->
+
   <!--  INSERT COMPONENT HERE-->
-  <TripItemList/>
-  <AppFooter/>
+<!--  <TripItemList/>-->
+
+  <ATripItemDiv></ATripItemDiv>
+
 </template>
 
 <script>
 // @ is an alias to /src
-import AppHeader from "@/components/AppHeader.vue";
-import TripItemList from "@/components/TripItemList.vue";
-import AppFooter from "@/components/AppFooter.vue";
+import ATripItemDiv from "@/components/accordianTrial/ATripItemDiv.vue";
+//import MainPage from "@/components/MainPage.vue";
 
 export default {
   name: 'HomeView',
   components: {
-    AppFooter,
-    TripItemList,
-    AppHeader,
+    //MainPage,
+    ATripItemDiv,
   }
 }
 </script>
