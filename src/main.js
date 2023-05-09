@@ -9,7 +9,7 @@ createApp(App).use(router).mount('#app')
 // const routes = [
 //     {path: '/', component: HomeView },
 //     {
-//         path: '/trip-details',
+//         path: '/photo-group',
 //         component: TripDetailsView
 //     }
 // ]

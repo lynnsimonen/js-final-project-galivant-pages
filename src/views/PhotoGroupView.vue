@@ -1,18 +1,18 @@
 <template>
 <AppHeader/>
   <!--  INSERT COMPONENT HERE-->
-<TripDetails/>
+<PhotoGroupDetails/>
 
   <AppFooter/>
 </template>
 
 <script>
 import AppFooter from "@/components/AppFooter.vue";
-import TripDetails from "@/components/TripDetails.vue";
 import AppHeader from "@/components/AppHeader.vue";
+import PhotoGroupDetails from "@/components/PhotoGroupDetails.vue";
 
 export default {
-  name: "TripDetailsView.vue",
-  components: {AppHeader, TripDetails, AppFooter}
+  name: "PhotoGroupView.vue",
+  components: {PhotoGroupDetails, AppHeader, AppFooter}
 }
 </script>

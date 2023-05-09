@@ -1,13 +1,13 @@
 <template>
+  <!-- TODO: COVER PAGE THAT HAS TRIPS LIST INSERTED HERE -->
+
   <div class="container-fluid page-body ">
     <div row justify-content-center>
       <h1 class="title pt-2">Tell Your Story...</h1>
     </div>
 
-    <!-- LOOP THROUGH TRIPS TO CREATE CARDS -->
-    <!--      <TripCard v-bind:trips="trips"></TripCard>-->
-        <TripCard :trips="trips">
-        </TripCard>
+    <TripCard :trips="trips">    </TripCard>
+
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
 import TripCard from "@/components/TripCard.vue";
-//import TripDetails from "@/components/TripDetails.vue";
+
 export default {
   name: "TripItemList",
   emits: "delete-it",
@@ -31,7 +31,7 @@ export default {
       keyword: '',
       trips: [
         new TravelEvent(new EventTrip('France Family Trip - 2018',
-            'France was great. France was great.  France was great.  France was great.  France was great.  France was great.  France was great.',
+            'Paris was cool but not too cold for walking outside along the Seine.  France was great.',
             '03/27/2018',
             '04/02/2018',
             '1',
@@ -39,6 +39,8 @@ export default {
             [new PhotoGroup
             ('Day One',
                 [new Photo('src/images/FR_01.JPG', 'caption-one'),
+                  new Photo('src/images/FR_02.JPG', 'caption-one'),
+                  new Photo('src/images/FR_02.JPG', 'caption-one'),
                   new Photo('src/images/FR_02.JPG', 'caption-one'),
                 ]),
               new PhotoGroup
@@ -48,6 +50,11 @@ export default {
                   ]),
               new PhotoGroup
               ('Day Three',
+                  [new Photo('src/images/FR_Monet.jpg', 'caption-one'),
+                    new Photo('src/images/FR_Nrmdy.jpg', 'caption-one'),
+                  ]),
+              new PhotoGroup
+              ('Day Four',
                   [new Photo('src/images/FR_Monet.jpg', 'caption-one'),
                     new Photo('src/images/FR_Nrmdy.jpg', 'caption-one'),
                   ]), //end last photoGroupArray
@@ -66,7 +73,22 @@ export default {
                 [new Photo('src/images/CR_01.JPG', 'caption-one'),
                   new Photo('src/images/CR_02.JPG', 'caption-two'),
                   new Photo('src/images/CR_03.JPG', 'caption-three')
-                ])
+                ]),
+              ('Day 2',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              ('Day 3',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              ('Day 4',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
             ]
         )),
 
@@ -75,21 +97,42 @@ export default {
             '07/09/2021',
             '07/19/2021',
             '3',
-            true
+            true,
+            [new PhotoGroup(
+                'Trip First Days',
+                [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                  new Photo('src/images/CR_02.JPG', 'caption-two'),
+                  new Photo('src/images/CR_03.JPG', 'caption-three')
+                ])
+            ]
         )),
         new TravelEvent(new EventTrip('Western Family Trip - 2015',
             'Trip was great',
             '03/24/2015',
             '04/02/2015',
             'd',
-            true
+            true,
+            [new PhotoGroup(
+                'Trip First Days',
+                [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                  new Photo('src/images/CR_02.JPG', 'caption-two'),
+                  new Photo('src/images/CR_03.JPG', 'caption-three')
+                ])
+            ]
         )),
         new TravelEvent(new EventTrip('Eastern Family Trip - 2016',
             'Trip was great',
             '03/24/2016',
             '04/02/2016',
             '4',
-            false
+            false,
+            [new PhotoGroup(
+                'Trip First Days',
+                [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                  new Photo('src/images/CR_02.JPG', 'caption-two'),
+                  new Photo('src/images/CR_03.JPG', 'caption-three')
+                ])
+            ]
         )),
       ],
     }

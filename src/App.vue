@@ -25,7 +25,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>|
-    <router-link to="/trip-details">Trip Details</router-link>
+    <router-link to="/photo-group">Photo Group</router-link>
   </nav>
   <router-view/>
 </template>

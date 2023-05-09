@@ -21,8 +21,7 @@ footer {
   font-size: 15px;
   background-color: #e6e6e6;
   color: #010101;
-  padding-top: 60px;
-  position: fixed;
+  padding-top: 3px;
   bottom: 0;
   left: 0;
   width: 100%;

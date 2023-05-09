@@ -1,24 +1,15 @@
 <template>
-
-<!--<MainPage></MainPage>-->
-
-  <!--  INSERT COMPONENT HERE-->
-<!--  <TripItemList/>-->
-
-  <ATripItemDiv></ATripItemDiv>
-
+<MainPage></MainPage>
 </template>
 
 <script>
 // @ is an alias to /src
-import ATripItemDiv from "@/components/accordianTrial/ATripItemDiv.vue";
-//import MainPage from "@/components/MainPage.vue";
+import MainPage from "@/components/MainPage.vue";
 
 export default {
   name: 'HomeView',
   components: {
-    //MainPage,
-    ATripItemDiv,
+    MainPage
   }
 }
 </script>
