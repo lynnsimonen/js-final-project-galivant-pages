@@ -11,11 +11,11 @@
 <!--             v-bind:class="isFavorite === item.favorite ? 'white' : 'yellow'"-->
 <!--             name="star"></i>-->
           <h5 class="card-title">
-            {{ trip.title }}
+<!--            {{ trip.title }}--> Trip Title
           </h5>
         </div>
         <h6 class="card-subtitle mb-2 text-muted">
-          {{ trip.arrivalDate }} - {{ trip.returnDate }}
+<!--          {{ trip.arrivalDate }} - {{ trip.returnDate }}-->  Trip Dates
         </h6>
 
         <!--TODO: CLICK to see THIS Trip's Details (bind the trip's key?)-->

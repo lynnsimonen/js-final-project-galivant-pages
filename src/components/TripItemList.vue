@@ -1,12 +1,9 @@
 <template>
-  <!-- TODO: COVER PAGE THAT HAS TRIPS LIST INSERTED HERE -->
+  <!-- COVER PAGE THAT HAS TRIPS LIST INSERTED HERE -->
 
   <div class="container-fluid page-body ">
-    <div row justify-content-center>
-      <h1 class="title pt-2">Tell Your Story...</h1>
-    </div>
-
-    <TripCard :trips="trips">    </TripCard>
+    <!-- <trip-card :trips="trips"></trip-card>-->
+    <trip-tabs :trips="trips"></trip-tabs>
 
   </div>
 </template>
@@ -14,16 +11,15 @@
 <script>
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
-import TripCard from "@/components/TripCard.vue";
-
+import TripTabs from "@/components/TripTabs.vue";
 export default {
   name: "TripItemList",
+  components: {TripTabs},
   emits: "delete-it",
   props: {
     type: TravelEvent
     //TravelEvent: Array
   },
-  components: {TripCard},
   data() {
     return {
       isFavorite: false,
@@ -36,13 +32,14 @@ export default {
             '04/02/2018',
             '1',
             true,
-            [new PhotoGroup
-            ('Day One',
-                [new Photo('src/images/FR_01.JPG', 'caption-one'),
-                  new Photo('src/images/FR_02.JPG', 'caption-one'),
-                  new Photo('src/images/FR_02.JPG', 'caption-one'),
-                  new Photo('src/images/FR_02.JPG', 'caption-one'),
-                ]),
+            [
+              new PhotoGroup
+              ('Day One',
+                  [new Photo('src/images/FR_01.JPG', 'caption-one'),
+                    new Photo('src/images/FR_02.JPG', 'caption-one'),
+                    new Photo('src/images/FR_02.JPG', 'caption-one'),
+                    new Photo('src/images/FR_02.JPG', 'caption-one'),
+                  ]),
               new PhotoGroup
               ('Day Two',
                   [new Photo('src/images/FR_03.JPG', 'caption-one'),
@@ -68,22 +65,26 @@ export default {
             '04/15/2019',
             '2',
             false,
-            [new PhotoGroup
-            ('Day 1',
-                [new Photo('src/images/CR_01.JPG', 'caption-one'),
-                  new Photo('src/images/CR_02.JPG', 'caption-two'),
-                  new Photo('src/images/CR_03.JPG', 'caption-three')
-                ]),
+            [
+              new PhotoGroup
+              ('Day 1',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
               ('Day 2',
                   [new Photo('src/images/CR_01.JPG', 'caption-one'),
                     new Photo('src/images/CR_02.JPG', 'caption-two'),
                     new Photo('src/images/CR_03.JPG', 'caption-three')
                   ]),
+              new PhotoGroup
               ('Day 3',
                   [new Photo('src/images/CR_01.JPG', 'caption-one'),
                     new Photo('src/images/CR_02.JPG', 'caption-two'),
                     new Photo('src/images/CR_03.JPG', 'caption-three')
                   ]),
+              new PhotoGroup
               ('Day 4',
                   [new Photo('src/images/CR_01.JPG', 'caption-one'),
                     new Photo('src/images/CR_02.JPG', 'caption-two'),
@@ -98,12 +99,25 @@ export default {
             '07/19/2021',
             '3',
             true,
-            [new PhotoGroup(
-                'Trip First Days',
-                [new Photo('src/images/CR_01.JPG', 'caption-one'),
-                  new Photo('src/images/CR_02.JPG', 'caption-two'),
-                  new Photo('src/images/CR_03.JPG', 'caption-three')
-                ])
+            [
+              new PhotoGroup
+              ('Trip First Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Second Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Third Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ])
             ]
         )),
         new TravelEvent(new EventTrip('Western Family Trip - 2015',
@@ -112,12 +126,25 @@ export default {
             '04/02/2015',
             'd',
             true,
-            [new PhotoGroup(
-                'Trip First Days',
-                [new Photo('src/images/CR_01.JPG', 'caption-one'),
-                  new Photo('src/images/CR_02.JPG', 'caption-two'),
-                  new Photo('src/images/CR_03.JPG', 'caption-three')
-                ])
+            [
+              new PhotoGroup
+              ('Trip First Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Second Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Third Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ])
             ]
         )),
         new TravelEvent(new EventTrip('Eastern Family Trip - 2016',
@@ -126,54 +153,38 @@ export default {
             '04/02/2016',
             '4',
             false,
-            [new PhotoGroup(
-                'Trip First Days',
-                [new Photo('src/images/CR_01.JPG', 'caption-one'),
-                  new Photo('src/images/CR_02.JPG', 'caption-two'),
-                  new Photo('src/images/CR_03.JPG', 'caption-three')
-                ])
+            [
+              new PhotoGroup
+              ('Trip First Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Second Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ]),
+              new PhotoGroup
+              ('Trip Third Days',
+                  [new Photo('src/images/CR_01.JPG', 'caption-one'),
+                    new Photo('src/images/CR_02.JPG', 'caption-two'),
+                    new Photo('src/images/CR_03.JPG', 'caption-three')
+                  ])
             ]
         )),
       ],
     }
   },
-  methods: {
-    sort(property) {
-      console.log('sorting by', property);
-      if (property === 'title') {
-        this.trips.sort((a, b) => {
-          if (a.title.toLowerCase() < b.title.toLowerCase()) {
-            return -1;
-          } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
-            return 1;
-          }
-          console.log('sorting by', property);
-          return 0;
-        })
-      } else if (property === 'returnDate') {
-        this.trips.sort((a, b) => {
-          console.log('sorting by', property);
-          return new Date(a.returnDate) - new Date(b.returnDate);
-        })
-      } else if (property === 'favorite') {
-        this.trips.sort((a, b) => {
-          if (a.favorite === true && b.favorite === false) {
-            return -1;
-          } else if (a.favorite === false && b.favorite === true) {
-            return 1;
-          }
-          console.log(a, property);
-          return 0;
-        })
-      }
-    },
-    search() {
-      let keyword = '';
-      if (keyword) {
-        return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
-            || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
-      }
-    },
+  computed: {},
+  methods: {},
+  search() {
+    let keyword = '';
+    if (keyword) {
+      return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
+          || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
+    }
   },
 }
 </script>
