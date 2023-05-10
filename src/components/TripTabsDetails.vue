@@ -1,8 +1,42 @@
 <template>
+  <div photo-group-card-header row>
+    <div class="btn-col col">
+      <button class="show-btn btn btn-secondary"
+              style="font-size: 10px;font-weight: bolder"
+              @click="showTrip=!showTrip">
+        SHOW HIDE Trip
+      </button>
+    </div>
+  </div>
 
-  <!--HERE IS THE COMPONENT AND BINDING-->
-  <photo-group-card :photo-group="trip.photoGroup"></photo-group-card>
+  <div v-show="showTrip">
+    <div class="page-trip-details">
+      <div class="row justify-content-center">
+        <div class="mt-3 p-2 d-inline-flex justify-content-center">
+          <i class="bi bi-star-fill mx-3"
+             style="color: goldenrod;font-size: 30px"
+             @click="this.favorite =!this.favorite"></i>
+          <h2>
+            {{trip.title}}
+          </h2>
+        </div>
+        <div>
+          {{trip.arrivalDate}} - {{trip.returnDate}}
+        </div>
+        <div>
+          <h3>
+            Trip Description:
+          </h3>
+          <div>
+            {{trip.description}}
+          </div>
+        </div>
 
+        <!--HERE IS THE COMPONENT AND BINDING-->
+        <photo-group-card :photo-group="trip.photoGroup"></photo-group-card>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -14,15 +48,23 @@ export default {
   props: {
     trip: Object
   },
-  data(){
-    return{
+  data() {
+    return {
       //photoGroup:[],
       photoGroup: Array,
+      showTrip: true,
+      showTripDetails: false
     }
   },
+  Computed: {
+    showTripDetails() {
+      this.showTrip = !this.showTrip;
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+
 
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="pageContainer">
     <div class="row ">
+      <!-- LEFT SIDE OF SCREEN - INDIVIDUAL TRIP MENU -->
       <div class="col col-12 col-sm-3 left-menu">
         <div class="sortButtons ">
         </div>
@@ -32,6 +33,9 @@
           </ul>
         </div>
       </div>
+
+      <!-- RIGHT HALF OF SCREEN - INDIVIDUAL TRIP DETAILS -->
+      <!-- TODO: ADD ,index AFTER trip SO THAT INDIVIDUAL TRIP DATA CAN BE ACCESSED FOR TRIP DETAILS-->
       <div class="col-9 trip-details">
         <div class="row trip-details-header">
           <div class="details-title justify-content-center">
@@ -54,15 +58,12 @@
         </div>
         <ul id="trial-trip-data"
             class="justify-content-center"
-            v-for="(trip, index) in trips"
+            v-for="(trip) in trips"
             :key="trip.key"
             :trip="trip">
           <!--HERE IS THE COMPONENT AND BINDING-->
           <trip-tabs-details :trip="trip"></trip-tabs-details>
-          {{ index - trip.title }}
-          <p>{{ trip.description }}</p>
         </ul>
-
       </div>
     </div>
   </div>
@@ -126,8 +127,7 @@ export default {
           this.orderBy = ['desc'];
         }
       }
-
-    }
+    },
   }
 }
 </script>
@@ -198,13 +198,15 @@ export default {
     color: rgba(116, 116, 116);
     background-color: #fae4a6;
     width: 10%;
+
     .btnText {
       font-size: x-large;
       font-weight: bolder;
-     text-align: center;
+      text-align: center;
       line-height: 100%;
 
     }
+
     .plusIcon {
       font-weight: bolder;
       font-size: xxx-large;
@@ -214,6 +216,7 @@ export default {
     }
 
   }
+
   .btn-col {
     display: flex;
     justify-content: end;

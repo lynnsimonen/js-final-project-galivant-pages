@@ -1,6 +1,9 @@
 <template>
   <!-- TODO: DETAILS INSIDE PHOTOGROUP CARDS -->
-
+<div>
+  PHOTO GROUP DETAILS
+  Item: {{photo}}
+</div>
 
 
   <!--HERE IS THE COMPONENT AND BINDING-->
