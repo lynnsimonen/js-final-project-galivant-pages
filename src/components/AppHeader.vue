@@ -2,14 +2,15 @@
   <nav class="navbar navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="../assets/Galivant-girl_150x150.jpg" width="150" height="150" alt="">
+        <img src="../assets/Galivant-girl_150x150.jpg" width="100" height="100" alt="">
       </a>
       <div><span class="gal">GAL<i class="bi bi-flower3"></i>LIVANT</span><br>
         <span class="sub-gal">gals sharing their travel adventures</span><br>
         <span class="sub-gal2">memories • itineraries • photos • travel ideas</span>
       </div>
       <div class="dropdown dropstart">
-        <button class="btn btn-outline-secondary dropdown-toggle border-0 p-1 m-5 " type="button" id="dropdownMenuButton1"
+        <button class="btn btn-outline-secondary dropdown-toggle border-0 p-1 m-3 " type="button"
+                id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-person-circle fs-1" style="color: rgba(116,116,116);" alt="circle person account"></i>
         </button>
@@ -37,9 +38,16 @@ export default {
 
 
 <style lang="scss">
+
+button .btn .dropdown-toggle {
+  padding: 20px;
+}
+
 nav {
   background-color: #e6e6e6;
+  //opacity: 50%;
   color: black;
+  margin-top: 0;
 
   .gal {
     //font-family: 'Inter', sans-serif;
@@ -48,7 +56,7 @@ nav {
     //font-family: 'Josefin Sans', sans-serif;
     //font-family: 'Sen', sans-serif;
     font-family: 'Heebo', sans-serif;
-    font-size: 50px;
+    font-size: 30px;
     color: #92e0c0;
     //color: rgba(116,116,116);
   }
@@ -60,7 +68,7 @@ nav {
     //font-family: 'Josefin Sans', sans-serif;
     font-family: 'Sen', sans-serif;
     font-size: 20px;
-    color: rgba(116,116,116);
+    color: rgba(116, 116, 116);
   }
 
   .sub-gal2 {

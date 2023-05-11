@@ -5,8 +5,7 @@
     </div>
     <!-- LOOP THROUGH TRIPS TO CREATE CARDS -->
     <!--      <TripCard v-bind:trips="trips"></TripCard>-->
-    <firebase_-trip-card/>
-  </div>
+    <firebase_-trip-card/>png</div>
 </template>
 
 <script>
@@ -35,12 +34,12 @@ export default {
             true,
             [new PhotoGroup
             ('Day One',
-                [new Photo('src/images/FR_01.JPG', 'caption-one'),
-                  new Photo('src/images/FR_02.JPG', 'caption-one'),
+                [new Photo('src/images/FR_01.png', 'caption-one'),
+                  new Photo('src/images/FR_02.png', 'caption-one'),
                 ]),
               new PhotoGroup
               ('Day Two',
-                  [new Photo('src/images/FR_03.JPG', 'caption-one'),
+                  [new Photo('src/images/FR_03.png', 'caption-one'),
                     new Photo('src/images/FR_Eiffel.jpg', 'caption-one'),
                   ]),
               new PhotoGroup
@@ -60,9 +59,9 @@ export default {
             false,
             [new PhotoGroup
             ('Day 1',
-                [new Photo('src/images/CR_01.JPG', 'caption-one'),
-                  new Photo('src/images/CR_02.JPG', 'caption-two'),
-                  new Photo('src/images/CR_03.JPG', 'caption-three')
+                [new Photo('src/images/CR_01.png', 'caption-one'),
+                  new Photo('src/images/CR_02.png', 'caption-two'),
+                  new Photo('src/images/CR_03.png', 'caption-three')
                 ])
             ]
         )),

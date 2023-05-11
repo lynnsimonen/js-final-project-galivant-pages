@@ -6,6 +6,7 @@ import router from './router'
 
 createApp(App).use(router).mount('#app')
 
+// see Vue router instructions for this section
 // const routes = [
 //     {path: '/', component: HomeView },
 //     {

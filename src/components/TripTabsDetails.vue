@@ -17,19 +17,19 @@
              style="color: goldenrod;font-size: 30px"
              @click="this.favorite =!this.favorite"></i>
           <h2>
-            {{trip.title}}
+            {{ trip.title }}
           </h2>
         </div>
+        <h4>
+          {{ trip.arrivalDate }} - {{ trip.returnDate }}
+        </h4>
         <div>
-          {{trip.arrivalDate}} - {{trip.returnDate}}
-        </div>
-        <div>
-          <h3>
+          <h5>
             Trip Description:
-          </h3>
-          <div>
-            {{trip.description}}
-          </div>
+          </h5>
+          <h5>
+            {{ trip.tripDescription }}
+          </h5>
         </div>
 
         <!--HERE IS THE COMPONENT AND BINDING-->

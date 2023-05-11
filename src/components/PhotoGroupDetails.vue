@@ -1,16 +1,14 @@
 <template>
   <!-- TODO: DETAILS INSIDE PHOTOGROUP CARDS -->
-<div>
-  PHOTO GROUP DETAILS
-  Item: {{photo}}
-</div>
-
-
-  <!--HERE IS THE COMPONENT AND BINDING-->
-  <photos-card :photo="oneGroup"></photos-card>
-  {{showTest}}
-
+  <div class="image-galleries">
+    <h3 class="gallery-titles">
+      {{ oneGroup.groupTitle }}
+    </h3>
+    <!--HERE IS THE COMPONENT AND BINDING-->
+    <photos-card :photos="oneGroup.photoArray"></photos-card>
+  </div>
 </template>
+
 
 <script>
 //-----------------------------------------------------------------------------------------------------------------------------
@@ -26,8 +24,8 @@ export default {
       photo: Array
     }
   },
-  computed:{
-    showTest(){
+  computed: {
+    showTest() {
       console.log(this.oneGroup)
       console.log('this.photo: ', this.photo)
       return null
@@ -40,6 +38,13 @@ export default {
 
 <style lang="scss">
 //-------------------------------------------------------------------------------------------------------------------------------
+.image-galleries {
+  background-color: #e6e6e6;
+  margin: 10px;
+  //border: #2c3e50 2px;
+  //display: inline-block;
+  //vertical-align: top;
+ width: 100%
 
-
+}
 </style>

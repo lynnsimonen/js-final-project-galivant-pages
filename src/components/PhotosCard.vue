@@ -1,27 +1,30 @@
 <template>
   <!-- TODO: LIST OF PHOTOS CARDS & COVER PAGE (and add new photos button) -->
-<div>THIS IS PHOTOS CARD</div>
 
-  <ul class="each-card"
-      v-for="onePhoto in photo"
-      :key="onePhoto.key"
-      :onePhoto="onePhoto">
-    <li>
-      <div>{{ onePhoto.photoCaption }}</div>
-      show test: {{showTest}}
-    </li>
-  </ul>
+
+  <div class="gallery">
+    <ul class="each-card"
+        v-for="onePhoto in photos"
+        :key="onePhoto.key"
+        :onePhoto="onePhoto">
+      <li>
+        <photo-details-component :onePhoto="onePhoto"></photo-details-component>
+      </li>
+    </ul>
+  </div>
 
 </template>
 
 <script>
+import PhotoDetailsComponent from "@/components/PhotoDetailsComponent.vue";
+
 console.log('this is PHOTOS CARD')
 export default {
   name: "PhotosCard",
-  components: {},
-  props: {photo: Array},
+  components: {PhotoDetailsComponent},
+  props: {photos: Array},
   data() {
-    return{
+    return {
       onePhoto: Object
     }
   },
@@ -35,6 +38,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  text-align: center;
+}
 </style>

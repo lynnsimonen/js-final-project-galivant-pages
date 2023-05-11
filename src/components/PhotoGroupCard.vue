@@ -1,30 +1,22 @@
 <template>
-
   <!-- LIST OF PHOTOGROUP CARDS & COVER PAGE (and add new photoGroup button) -->
 
-
   <!-- TODO: Have photo groups displayed in cards below-->
-  <div class="title row justify-content-center m-5">
-    Your Travel Albums
+    <h5 >
+      Image Galleries
+    </h5>
+<div class="">
     <ul class="photo-groups"
         v-for="oneGroup in photoGroup"
         :key="oneGroup.groupTitle"
         :oneGroup="oneGroup">
       <li>
-        <div class="card-body">
-          <div class="d-inline-flex">
-            <div>
-              photo group title: {{ oneGroup.groupTitle }}<br>
-            </div>
-            <!--HERE IS THE COMPONENT AND BINDING-->
-            <photo-group-details :one-group="photoGroup.photoGroup"></photo-group-details>
-          </div>
-        </div>
+        <!--HERE IS THE COMPONENT AND BINDING-->
+
+        <photo-group-details :one-group="oneGroup"></photo-group-details>
       </li>
     </ul>
-  </div>
-
-
+</div>
 </template>
 
 <script>
