@@ -1,22 +1,10 @@
 <template >
-
-  <!--  <div class="img">-->
-  <!--    <img src="'../assets/${onePhoto.photoFilePath}'" width="100" height="75" class="card-img-top"-->
-  <!--         alt="photo of our trip"/>-->
-  <!--    <caption class="card-title">{{ '../assets/' + onePhoto.photoFilePath }}</caption>-->
-  <!--  </div>-->
-
-  <!--  <div class="gallery">-->
-  <!--    <a target="_blank" href="'../assets/${onePhoto.photoFilePath}'">-->
-  <!--      <img src="../assets/HI_06.jpg" width="100" height="75" class="img-thumbnail" alt="photo of our trip"/>-->
-  <!--    </a>-->
-  <!--    <caption class="desc">{{ onePhoto.photoCaption }}</caption>-->
-  <!--  </div>-->
+<!--  DONE: Photo and Caption couplings-->
 
   <div class="figure-caption-set">
     <div class="figure-caption-set">
-    <img src="../assets/HI_06.jpg" width="100" height="75" class="img-thumbnail" alt="photo of our trip"/>
-    <caption class="card-title">{{ onePhoto.photoCaption }}</caption>
+    <img :src="onePhoto.photoFilePath"  width="100" height="75" class="img-thumbnail" :alt="onePhoto.photoCaption"/>
+    <p class="caption">{{ onePhoto.photoCaption }}</p>
   </div>
   </div>
 
@@ -29,32 +17,29 @@ export default {
   props: {onePhoto: Object},
   data() {
     return {}
-  }
+  },
+  computed:{  }
 }
 </script>
-
 <style lang="scss">
-//.figures {
-//  display: inline-block;
-//  vertical-align: bottom;
-//  flex-wrap: wrap;
-//  text-align: center;
-//}
-.figure-caption-set:hover {
-  border: 1px solid #777;
+img:hover {
+  border: 2px solid #777;
 }
 .figure-caption-set{
   width: 100px;
   margin: 5px;
+  text-align: center;
+  //align-items: baseline;
+  //vertical-align: bottom;
+
 }
 img {
   width: 100%;
   height: auto;
-  align-items: baseline;
+  vertical-align: bottom;
+
 }
-caption {
-  display: block;
-  //text-align: center;
+.caption {
   padding: 10px;
 }
 </style>

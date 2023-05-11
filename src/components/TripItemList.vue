@@ -35,38 +35,38 @@ export default {
             [
               new PhotoGroup
               ('Day One',
-                  [new Photo('FR_01.png', 'city'),
-                    new Photo('FR_02.png', 'smiles'),
-                    new Photo('FR_03.png', 'landmark'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
-                    new Photo('FR_02.png', 'smiles'),
-                    new Photo('FR_03.png', 'landmark'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
-                    new Photo('FR_02.png', 'smiles'),
-                    new Photo('FR_03.png', 'landmark'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
-                    new Photo('FR_02.png', 'smiles'),
-                    new Photo('FR_03.png', 'landmark'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
-                    new Photo('FR_02.png', 'smiles'),
-                    new Photo('FR_03.png', 'landmark'),
-                    new Photo('FR_Eiffel.png', 'here we are'),
+                  [new Photo('./FR_01.png', 'city'),
+                    new Photo('./FR_02.png', 'smiles'),
+                    new Photo('./FR_03.png', 'landmark'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
+                    new Photo('./FR_02.png', 'smiles'),
+                    new Photo('./FR_03.png', 'landmark'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
+                    new Photo('./FR_02.png', 'smiles'),
+                    new Photo('./FR_03.png', 'landmark'),
+                    new Photo('./FR_Eiffel.jpg','here we are'),
+                    new Photo('./FR_02.png', 'smiles'),
+                    new Photo('./FR_03.png', 'landmark'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
+                    new Photo('./FR_02.png', 'smiles'),
+                    new Photo('./FR_03.png', 'landmark'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
                   ]),
               new PhotoGroup
               ('Day Two',
-                  [new Photo('FR_03.png', 'morning'),
-                    new Photo('FR_Eiffel.jpg', 'afternoon'),
+                  [new Photo('./FR_03.png', 'morning'),
+                    new Photo('./FR_Eiffel.jpg', 'afternoon'),
                   ]),
               new PhotoGroup
               ('Day Three',
-                  [new Photo('FR_Monet.jpg', 'later'),
-                    new Photo('FR_Nrmdy.jpg', 'later yet'),
+                  [new Photo('./FR_Monet.jpg', 'later'),
+                    new Photo('./FR_Nrmdy.jpg', 'later yet'),
                   ]),
               new PhotoGroup
               ('Day Four',
-                  [new Photo('FR_Nrmdy.jpg', 'morning last day'),
-                    new Photo('FR_Monet.jpg', 'dinner'),
+                  [new Photo('./FR_Nrmdy.jpg', 'morning last day'),
+                    new Photo('./FR_Monet.jpg', 'dinner'),
                   ]), //end last photoGroupArray
 
             ], //end new PhotoGroup
@@ -80,28 +80,31 @@ export default {
             false,
             [
               new PhotoGroup
-              ('Day 1',
-                  [new Photo('CR_01.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+              ('Liberia',
+                  [new Photo('/CR_01.png', 'caption-two'),
+                    new Photo('./CR_01.png', 'caption-three'),
+                    new Photo('./CR_02.png', 'caption-four'),
+                    new Photo('./CR_03.png', 'caption-five'),
+                    new Photo('./CR_03.png', 'caption-six'),
+                    new Photo('./CR_03.png', 'caption-three'),
                   ]),
               new PhotoGroup
-              ('Day 2',
-                  [new Photo('CR_02.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+              ('Punta Islita',
+                  [new Photo('./CR_02.png', 'sunny'),
+                    new Photo('./CR_02.png', 'caption-warm'),
+                    new Photo('./CR_03.png', 'caption-beach')
                   ]),
               new PhotoGroup
-              ('Day 3',
-                  [new Photo('CR_03.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+              ('Volcano',
+                  [new Photo('./CR_03.png', 'caption-volcano'),
+                    new Photo('./CR_02.png', 'caption-dinner'),
+                    new Photo('./CR_03.png', 'caption-dog')
                   ]),
               new PhotoGroup
-              ('Day 4',
-                  [new Photo('CR_04.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+              ('San Jose',
+                  [new Photo('./CR_04.png', 'caption city'),
+                    new Photo('./CR_02.png', 'caption airport'),
+                    new Photo('./CR_03.png', 'caption legos')
                   ]),
             ]
         )),
@@ -115,22 +118,22 @@ export default {
             [
               new PhotoGroup
               ('Trip First Days',
-                  [new Photo('HI_01.jpg', 'caption-one'),
-                    new Photo('HI_02.jpg','caption-two'),
-                    new Photo('HI_03.jpg', 'caption-three')
+                  [new Photo('./HI_01.jpg', 'caption-one'),
+                    new Photo('./HI_02.jpg','caption-two'),
+                    new Photo('./HI_03.jpg', 'caption-three')
                   ]),
               new PhotoGroup
               ('Trip Second Days',
-                  [new Photo('HI_04.jpg', 'caption-one'),
-                    new Photo('HI_05.jpg', 'caption-two'),
-                    new Photo('HI_06.jpg', 'caption-three')
+                  [new Photo('./HI_04.jpg', 'caption-one'),
+                    new Photo('./HI_05.jpg', 'caption-two'),
+                    new Photo('./HI_06.jpg', 'caption-three')
                   ]),
               new PhotoGroup
-              ('Trip Third Days',
-                  [new Photo('HI_07.jpg', 'caption-one'),
-                    new Photo('HI_08.jpg', 'caption-two'),
-                    new Photo('HI_09.jpg', 'caption-three')
-                  ])
+              ('Trip Second Days',
+                  [new Photo('./HI_07.jpg', 'caption-one'),
+                    new Photo('./HI_08.jpg', 'caption-two'),
+                    new Photo('./HI_09.jpg', 'caption-three')
+                  ]),
             ]
         )),
         new TravelEvent(new EventTrip('Western Family Trip - 2015',
@@ -142,21 +145,21 @@ export default {
             [
               new PhotoGroup
               ('Trip First Days',
-                  [new Photo('CR_04.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_04.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ]),
               new PhotoGroup
               ('Trip Second Days',
-                  [new Photo('CR_01.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_01.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ]),
               new PhotoGroup
               ('Trip Third Days',
-                  [new Photo('CR_01.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_01.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ])]
         )),
         new TravelEvent(new EventTrip('Eastern Family Trip - 2016',
@@ -168,21 +171,21 @@ export default {
             [
               new PhotoGroup
               ('Trip First Days',
-                  [new Photo('CR_01.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_01.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ]),
               new PhotoGroup
               ('Trip Second Days',
-                  [new Photo('CR_02.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_02.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ]),
               new PhotoGroup
               ('Trip Third Days',
-                  [new Photo('CR_03.png', 'caption-one'),
-                    new Photo('CR_02.png', 'caption-two'),
-                    new Photo('CR_03.png', 'caption-three')
+                  [new Photo('./CR_03.png', 'caption-one'),
+                    new Photo('./CR_02.png', 'caption-two'),
+                    new Photo('./CR_03.png', 'caption-three')
                   ])
             ]
         )),

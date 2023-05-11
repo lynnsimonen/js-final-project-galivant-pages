@@ -1,12 +1,12 @@
 <template>
-  <!-- TODO: LIST OF PHOTOS CARDS & COVER PAGE (and add new photos button) -->
-
+  <!-- DONE: LIST OF PHOTOS CARDS & COVER PAGE (and add new photos button) -->
 
   <div class="gallery">
     <ul class="each-card"
         v-for="onePhoto in photos"
-        :key="onePhoto.key"
-        :onePhoto="onePhoto">
+        :key="onePhoto.photoCaption"
+        :onePhoto="onePhoto"
+        :src="img">
       <li>
         <photo-details-component :onePhoto="onePhoto"></photo-details-component>
       </li>
@@ -42,6 +42,6 @@ export default {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  text-align: center;
+  padding-right: 20px;
 }
 </style>

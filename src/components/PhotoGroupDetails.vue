@@ -38,13 +38,21 @@ export default {
 
 <style lang="scss">
 //-------------------------------------------------------------------------------------------------------------------------------
+.gallery-titles {
+  //font-family: 'Inter', sans-serif;
+  //font-family: 'Pacifico', cursive;
+  //font-family: 'Philosopher', sans-serif;
+  //font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Sen', sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+  color: rgba(116, 116, 116);
+  padding: 10px;
+}
 .image-galleries {
+  padding-top: 15px;
   background-color: #e6e6e6;
   margin: 10px;
-  //border: #2c3e50 2px;
-  //display: inline-block;
-  //vertical-align: top;
- width: 100%
-
+  width: 100%
 }
 </style>

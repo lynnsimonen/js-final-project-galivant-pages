@@ -1,35 +1,38 @@
 <template>
-  <div photo-group-card-header row>
-    <div class="btn-col col">
+  <span photo-group-card-header>
       <button class="show-btn btn btn-secondary"
               style="font-size: 10px;font-weight: bolder"
               @click="showTrip=!showTrip">
         SHOW HIDE Trip
       </button>
-    </div>
-  </div>
+    </span>
 
   <div v-show="showTrip">
-    <div class="page-trip-details">
-      <div class="row justify-content-center">
-        <div class="mt-3 p-2 d-inline-flex justify-content-center">
+    <div>
+      <div class="row justify-content-start trip-details">
+        <div class="mt-3 p-2 d-inline-flex justify-content-start">
           <i class="bi bi-star-fill mx-3"
              style="color: goldenrod;font-size: 30px"
              @click="this.favorite =!this.favorite"></i>
-          <h2>
+          <h3 class="trip-title">
             {{ trip.title }}
-          </h2>
+          </h3>
         </div>
-        <h4>
+        <div class="date-group">
+          <span class="trip-dates-label">
+           Dates:
+          </span>
+          <span class="trip-dates">
           {{ trip.arrivalDate }} - {{ trip.returnDate }}
-        </h4>
-        <div>
-          <h5>
+          </span>
+        </div>
+        <div class="desc-group">
+          <span class="trip-desc-label">
             Trip Description:
-          </h5>
-          <h5>
+          </span>
+          <span class="trip-desc">
             {{ trip.tripDescription }}
-          </h5>
+          </span>
         </div>
 
         <!--HERE IS THE COMPONENT AND BINDING-->
@@ -65,6 +68,36 @@ export default {
 </script>
 
 <style lang="scss">
+
+.trip-details {
+  //font-family: 'Inter', sans-serif;
+  //font-family: 'Pacifico', cursive;
+  //font-family: 'Philosopher', sans-serif;
+  //font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Sen', sans-serif;
+  color: rgba(116, 116, 116);
+  padding: 10px;
+  vertical-align: center;
+
+  .trip-title {
+    margin-bottom: 0px;
+    padding-bottom: 0;
+
+  }
+
+  .trip-title, .trip-desc-label, .trip-dates-label {
+    font-weight: bold;
+    color: rgba(116, 116, 116);
+  }
+  .trip-desc-label, .trip-dates-label {
+    font-size: large;
+  }
+.date-group, .desc-group{
+  text-align: start;
+  margin-left: 65px;
+}
+
+}
 
 
 </style>
