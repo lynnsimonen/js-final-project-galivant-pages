@@ -25,10 +25,12 @@
               :key="trip.key"
               :trip="trip">
             <li>
-              <search-menu-form style="width: 100%" @submit.prevent="showTrip(keyValue)">
+<!--              <search-menu-form style="width: 100%" @submit.prevent="showTrip(keyValue)">-->
 
-                <button type="submit"
-                        class="menu-item-trip btn row">
+<!--                <button type="submit"-->
+                <button
+                    class="menu-item-trip btn row"
+                    @click="showTrip">
                   <div v-if="trip.favorite" class="star col-1">
                     <i class="bi bi-star-fill" style="color:gold"></i>
                   </div>
@@ -38,8 +40,8 @@
                   </div>
                 </button>
 
-                <input type="hidden" id="menuKey" name="menuKey" keyValue="{{trip.key}}"/>
-              </search-menu-form>
+<!--                <input type="hidden" id="menuKey" name="menuKey" keyValue="{{trip.key}}"/>-->
+<!--              </search-menu-form>-->
 
 
             </li>
@@ -68,14 +70,16 @@
             </button>
           </div>
         </div>
-        <div class="trips-container">
+        <cover-page v-show="showCoverPage"></cover-page>
+        <div class="trips-container"
+             v-show="showTripTabsDetails">
           <ul id="ul-get-the-trip-index"
               class="justify-content-center"
-              v-for="(trip, index) in clickedMenuTrip"
+              v-for="(trip, index) in trips"
               :key="trip.key"
               :trip="index">
             <!--HERE IS THE COMPONENT AND BINDING-->
-            <trip-tabs-details :trip="trip"></trip-tabs-details>
+            <trip-tabs-details :trip="trip" ></trip-tabs-details>
           </ul>
         </div>
         <!--        <div v-else>No Trips Found for this trip.key: {{value}}</div>-->
@@ -88,27 +92,27 @@
 <script>
 import _ from "lodash";
 import TripTabsDetails from "@/components/TripTabsDetails.vue";
+import CoverPage from "@/components/CoverPage.vue";
 
-console.log()
-// <li>{{ index + 1}} - {{ trip.title }}</li>
 export default {
   name: "TripTabs",
-  components: {TripTabsDetails},
+  components: {CoverPage, TripTabsDetails},
   props: {
     trips: Array,
   },
   emits: {},
   data() {
     return {
-      keyValue: '',
-      clickedMenuTrip: [...this.trips],
+      showCoverPage: true,
+      showTripTabsDetails: false,
+      //keyValue: '',
+      //clickedMenuTrip: [...this.trips],
+      //showDiv: true,
+      //showTripDetails: false,
       isFavorite: false,
       sortBy: ['title'],
       orderBy: ['desc'],
-      showDiv: true,
-      showTripDetails: false,
       trip: Object,
-      //list: document.getElementById("trip-title-list").toLowerCase()
     }
   },
   computed: {
@@ -156,14 +160,13 @@ export default {
     //   })
     // },
 
-    showTrip(value) {
-      console.log(value);
-      if (this.clickedMenuTrip.length > 0) {
-        this.clickedMenuTrip = this.clickedMenuTrip.filter((trip) => {
-          return trip.key === value;
-        })
-      }
+    showTrip() {
+      this.showTripTabsDetails = !this.showTripTabsDetails;
+      this.showCoverPage = !this.showCoverPage;
     },
+    // hideTripContent(){
+    //   document.getElementByClassName(hideTripContent).hide;
+    // }
   }
 }
 

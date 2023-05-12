@@ -7,7 +7,7 @@
       </button>
     </span>
 
-  <div v-show="showTrip">
+  <div v-show="showTrip" class="hideTripContent">
     <div>
       <div class="row justify-content-start trip-details">
         <div class="mt-3 p-2 d-inline-flex justify-content-start">
@@ -59,9 +59,9 @@ export default {
     }
   },
   methods: {
-    menuTab1() {
-
-    }
+  // hideTripContent(){
+  //   document.getElementByClassName(hideTripContent).hide;
+  // }
 
   },
   Computed: {
