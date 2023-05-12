@@ -4,9 +4,9 @@
   <!-- TODO: Have photo groups displayed in cards below-->
 
     <ul class="photo-groups"
-        v-for="oneGroup in photoGroup"
-        :key="oneGroup.groupTitle"
-        :oneGroup="oneGroup">
+        v-for="(oneGroup, index) in photoGroup"
+        :key="index"
+        :one-group="oneGroup">
       <li>
         <!--HERE IS THE COMPONENT AND BINDING-->
 

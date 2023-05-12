@@ -140,7 +140,7 @@ export default {
             'Trip was great',
             '03/24/2015',
             '04/02/2015',
-            'd',
+            '4',
             true,
             [
               new PhotoGroup
@@ -166,7 +166,7 @@ export default {
             'Trip was great',
             '03/24/2016',
             '04/02/2016',
-            '4',
+            '5',
             false,
             [
               new PhotoGroup

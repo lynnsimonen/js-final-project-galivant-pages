@@ -3,7 +3,7 @@
 
   <div class="figure-caption-set">
     <div class="figure-caption-set">
-    <img :src="onePhoto.photoFilePath"  width="100" height="75" class="img-thumbnail" :alt="onePhoto.photoCaption"/>
+    <img :src="onePhoto.photoFilePath"  width="50" height="auto" class="img-thumbnail" :alt="onePhoto.photoCaption"/>
     <p class="caption">{{ onePhoto.photoCaption }}</p>
   </div>
   </div>
@@ -21,12 +21,13 @@ export default {
   computed:{  }
 }
 </script>
+
 <style lang="scss">
 img:hover {
   border: 2px solid #777;
 }
 .figure-caption-set{
-  width: 100px;
+  width: 50px;
   margin: 5px;
   text-align: center;
   //align-items: baseline;
@@ -40,6 +41,7 @@ img {
 
 }
 .caption {
-  padding: 10px;
+  padding: 0px;
+  font-size: xx-small;
 }
 </style>

@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  padding-right: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+  padding-right: 5px;
 }
 </style>

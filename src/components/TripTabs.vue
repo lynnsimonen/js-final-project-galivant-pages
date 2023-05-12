@@ -19,21 +19,33 @@
             Favs <i class="bi bi-arrow-down-up"></i>
           </div>
           <div class="menu-title">TRIPS</div>
-          <ul id="trip-title-list"
+          <ul id="ul-trip-menu"
               class="card "
               v-for="(trip) in sortedTrips"
               :key="trip.key"
               :trip="trip">
             <li>
-              <div v-if="trip.favorite">
-                <i class="bi bi-star-fill" style="color:gold"></i>
-              </div>
-              {{ trip.title }}
+              <search-menu-form style="width: 100%" @submit.prevent="showTrip(keyValue)">
+
+                <button type="submit"
+                        class="menu-item-trip btn row">
+                  <div v-if="trip.favorite" class="star col-1">
+                    <i class="bi bi-star-fill" style="color:gold"></i>
+                  </div>
+                  <div v-else class="col-1"></div>
+                  <div class="col-10 menu-btn-title">
+                    {{ trip.title }}
+                  </div>
+                </button>
+
+                <input type="hidden" id="menuKey" name="menuKey" keyValue="{{trip.key}}"/>
+              </search-menu-form>
+
+
             </li>
           </ul>
         </div>
       </div>
-
       <!-- RIGHT HALF OF SCREEN - INDIVIDUAL TRIP DETAILS -->
       <!-- TODO: ADD ,index AFTER trip SO THAT INDIVIDUAL TRIP DATA CAN BE ACCESSED FOR TRIP DETAILS-->
       <div class="col-9 trip-details">
@@ -56,14 +68,17 @@
             </button>
           </div>
         </div>
-        <ul id="trial-trip-data"
-            class="justify-content-center"
-            v-for="(trip) in trips"
-            :key="trip.key"
-            :trip="trip">
-          <!--HERE IS THE COMPONENT AND BINDING-->
-          <trip-tabs-details :trip="trip"></trip-tabs-details>
-        </ul>
+        <div class="trips-container">
+          <ul id="ul-get-the-trip-index"
+              class="justify-content-center"
+              v-for="(trip, index) in clickedMenuTrip"
+              :key="trip.key"
+              :trip="index">
+            <!--HERE IS THE COMPONENT AND BINDING-->
+            <trip-tabs-details :trip="trip"></trip-tabs-details>
+          </ul>
+        </div>
+        <!--        <div v-else>No Trips Found for this trip.key: {{value}}</div>-->
       </div>
     </div>
   </div>
@@ -71,22 +86,22 @@
 </template>
 
 <script>
-
 import _ from "lodash";
 import TripTabsDetails from "@/components/TripTabsDetails.vue";
 
+console.log()
 // <li>{{ index + 1}} - {{ trip.title }}</li>
 export default {
   name: "TripTabs",
   components: {TripTabsDetails},
   props: {
-    // trips: [],
     trips: Array,
   },
-  //['trips'],
   emits: {},
   data() {
     return {
+      keyValue: '',
+      clickedMenuTrip: [...this.trips],
       isFavorite: false,
       sortBy: ['title'],
       orderBy: ['desc'],
@@ -97,15 +112,13 @@ export default {
     }
   },
   computed: {
-    // sortedTrips: function (sortBy) {
     sortedTrips: function () {
       return _.orderBy(
           this.trips,
           this.sortBy,
           this.orderBy
       );
-
-    }
+    },
   },
   methods: {
     sortItems: function (sortBy) {
@@ -128,8 +141,32 @@ export default {
         }
       }
     },
+
+    // filteredTrip() {
+    //   console.log('this.tripKeyValue: ', this.trips)
+    //   if (this.tripKeyValue.trim().length > 0) {
+    //     return this.trips.filter((trip) => trip.key === this.tripKeyValue)
+    //
+    //   }
+    //   return this.trips
+
+    // searchTrips(value) {
+    //   this.clickedMenuTrip = this.clickedMenuTrip.filter((trip) =>{
+    //     return trip.key === value;
+    //   })
+    // },
+
+    showTrip(value) {
+      console.log(value);
+      if (this.clickedMenuTrip.length > 0) {
+        this.clickedMenuTrip = this.clickedMenuTrip.filter((trip) => {
+          return trip.key === value;
+        })
+      }
+    },
   }
 }
+
 </script>
 
 <style lang="scss">
@@ -154,6 +191,10 @@ export default {
       user-select: none;
     }
 
+    .sortButton-items:hover {
+      font-weight: bolder;
+    }
+
     .menu-title {
       //font-family: 'Inter', sans-serif;
       //font-family: 'Pacifico', cursive;
@@ -169,9 +210,26 @@ export default {
     .tabs {
       ul {
         padding-left: 5px;
+
       }
 
       li {
+        text-align: start;
+      }
+
+      .menu-item-trip {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-content: center;
+      }
+
+      .menu-item-trip:hover {
+        color: black;
+        font-weight: bolder;
+      }
+
+      .menu-btn-title {
         text-align: start;
       }
     }
@@ -214,7 +272,10 @@ export default {
       padding: 0;
       margin: 0;
     }
+  }
 
+  .new-btn:hover {
+    font-weight: bolder;
   }
 
   .btn-col {

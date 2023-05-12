@@ -45,12 +45,13 @@ export default {
   //font-family: 'Josefin Sans', sans-serif;
   font-family: 'Sen', sans-serif;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 20px;
   color: rgba(116, 116, 116);
-  padding: 10px;
+  padding: 5px;
 }
 .image-galleries {
   padding-top: 15px;
+  padding-right: 20px;
   background-color: #e6e6e6;
   margin: 10px;
   width: 100%

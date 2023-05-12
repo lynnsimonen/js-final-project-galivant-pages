@@ -34,7 +34,6 @@
             {{ trip.tripDescription }}
           </span>
         </div>
-
         <!--HERE IS THE COMPONENT AND BINDING-->
         <photo-group-card :photo-group="trip.photoGroup"></photo-group-card>
       </div>
@@ -58,6 +57,12 @@ export default {
       showTrip: true,
       showTripDetails: false
     }
+  },
+  methods: {
+    menuTab1() {
+
+    }
+
   },
   Computed: {
     showTripDetails() {
@@ -89,13 +94,18 @@ export default {
     font-weight: bold;
     color: rgba(116, 116, 116);
   }
+
   .trip-desc-label, .trip-dates-label {
     font-size: large;
   }
-.date-group, .desc-group{
-  text-align: start;
-  margin-left: 65px;
-}
+
+  .date-group, .desc-group {
+    text-align: start;
+    margin-left: 65px;
+  }
+  .show-btn:hover{
+    border: 2px solid #777;
+  }
 
 }
 
