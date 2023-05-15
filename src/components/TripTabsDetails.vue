@@ -1,16 +1,16 @@
 <template>
-  <span photo-group-card-header>
+  <div class="show-trip-btn">
       <button class="show-btn btn btn-secondary"
               style="font-size: 10px;font-weight: bolder"
               @click="showTrip=!showTrip">
-        SHOW HIDE Trip
+        {{ trip.title }}
       </button>
-    </span>
+  </div>
 
-  <div v-show="showTrip" class="hideTripContent">
+  <div v-show="showTrip" class="hideTripContent ">
     <div>
-      <div class="row justify-content-start trip-details">
-        <div class="mt-3 p-2 d-inline-flex justify-content-start">
+      <div class="row  trip-details">
+        <div class="mt-3 p-2 d-inline-flex ">
           <i class="bi bi-star-fill mx-3"
              style="color: goldenrod;font-size: 30px"
              @click="this.favorite =!this.favorite"></i>
@@ -54,14 +54,14 @@ export default {
     return {
       //photoGroup:[],
       photoGroup: Array,
-      showTrip: true,
+      showTrip: false,
       showTripDetails: false
     }
   },
   methods: {
-  // hideTripContent(){
-  //   document.getElementByClassName(hideTripContent).hide;
-  // }
+    // hideTripContent(){
+    //   document.getElementByClassName(hideTripContent).hide;
+    // }
 
   },
   Computed: {
@@ -82,12 +82,10 @@ export default {
   font-family: 'Sen', sans-serif;
   color: rgba(116, 116, 116);
   padding: 10px;
-  vertical-align: center;
 
   .trip-title {
     margin-bottom: 0px;
     padding-bottom: 0;
-
   }
 
   .trip-title, .trip-desc-label, .trip-dates-label {
@@ -103,7 +101,8 @@ export default {
     text-align: start;
     margin-left: 65px;
   }
-  .show-btn:hover{
+
+  .show-btn:hover {
     border: 2px solid #777;
   }
 
