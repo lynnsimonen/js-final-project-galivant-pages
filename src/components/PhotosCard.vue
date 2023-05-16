@@ -25,7 +25,8 @@ export default {
   props: {photos: Array},
   data() {
     return {
-      onePhoto: Object
+      onePhoto: Object,
+      img: '',
     }
   },
   Computed: {

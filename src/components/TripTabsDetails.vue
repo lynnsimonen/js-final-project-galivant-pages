@@ -105,8 +105,5 @@ export default {
   .show-btn:hover {
     border: 2px solid #777;
   }
-
 }
-
-
 </style>

@@ -95,10 +95,6 @@ export default {
       addTrip: false,
       showCoverPage: true,
       showTripTabsDetails: false,
-      //keyValue: '',
-      //clickedMenuTrip: [...this.trips],
-      //showDiv: true,
-      //showTripDetails: false,
       isFavorite: false,
       sortBy: ['title'],
       orderBy: ['desc'],
@@ -156,9 +152,6 @@ export default {
       //showCoverPage data() is true
       this.showCoverPage = !this.showCoverPage;
     },
-    // hideTripContent(){
-    //   document.getElementByClassName(hideTripContent).hide;
-    // }
   }
 }
 
@@ -191,10 +184,6 @@ export default {
     }
 
     .menu-title {
-      //font-family: 'Inter', sans-serif;
-      //font-family: 'Pacifico', cursive;
-      //font-family: 'Philosopher', sans-serif;
-      //font-family: 'Josefin Sans', sans-serif;
       font-family: 'Sen', sans-serif;
       font-weight: bold;
       font-size: 24px;

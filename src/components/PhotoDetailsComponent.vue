@@ -16,7 +16,9 @@ export default {
   components: {},
   props: {onePhoto: Object},
   data() {
-    return {}
+    return {
+      img: '',
+    }
   },
   computed:{  }
 }
