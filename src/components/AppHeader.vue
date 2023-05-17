@@ -2,37 +2,45 @@
   <nav class="navbar navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="../assets/Galivant-girl_150x150.jpg" width="100" height="100" alt="">
+        <img src="../assets/Galivant-girl_150x150.jpg"
+             width="100"
+             height="100"
+             alt="travelling female">
       </a>
       <div><span class="gal">GAL<i class="bi bi-flower3"></i>LIVANT</span><br>
         <span class="sub-gal">gals sharing their travel adventures</span><br>
         <span class="sub-gal2">memories • itineraries • photos • travel ideas</span>
       </div>
-      <div class="dropdown dropstart">
-        <button class="btn btn-outline-secondary dropdown-toggle border-0 p-1 m-3 " type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person-circle fs-1" style="color: rgba(116,116,116);" alt="circle person account"></i>
-        </button>
-        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Sign In</a></li>
-          <li><a class="dropdown-item" href="#">Sign Up</a></li>
-          <li><a class="dropdown-item" href="#">My Gal<i class="bi bi-flower3"></i>lavant</a></li>
-          <li><a class="dropdown-item" href="#">My Favorites</a></li>
-          <li><a class="dropdown-item" href="#">Account & Settings</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="#">Sign Out</a></li>
-        </ul>
-      </div>
+            <div class="dropdown dropstart">
+              <button class="btn btn-outline-secondary dropdown-toggle border-0 p-1 m-3 " type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle fs-1" style="color: rgba(116,116,116);" alt="circle person account"></i>
+              </button>
+              <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Sign In</a></li>
+                <li><a class="dropdown-item" href="#">Sign Up</a></li>
+                <li><a class="dropdown-item" href="#">My Gal<i class="bi bi-flower3"></i>lavant</a></li>
+                <li><a class="dropdown-item" href="#">My Favorites</a></li>
+                <li><a class="dropdown-item" href="#">Account & Settings</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+<!--                <li><a class="dropdown-item" href="#">Sign Out</a></li>-->
+              </ul>
+            </div>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "AppHeader"
+  name: "AppHeader",
+  methods:{
+    showCover() {
+      this.showCoverPage;
+    }
+  }
 }
 </script>
 

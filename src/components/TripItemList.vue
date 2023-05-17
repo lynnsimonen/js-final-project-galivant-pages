@@ -1,6 +1,15 @@
 <template>
   <!-- COVER PAGE THAT HAS TRIPS LIST INSERTED HERE -->
-
+  <add-a-trip
+      v-model:title="title"
+      v-model:favorite="favorite"
+      v-model:travel-country="travelCountry"
+      v-model:arrival-date="arrivalDate"
+      v-model:return-date="returnDate"
+      v-model:trip-description="tripDescription"
+      v-model:key="key"
+      @add-new-trip="addTrip"
+  ></add-a-trip>
   <div class="container-fluid page-body ">
     <!-- <trip-card :trips="trips"></trip-card>-->
     <trip-tabs :trips="trips"></trip-tabs>
@@ -12,9 +21,11 @@
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
 import TripTabs from "@/components/TripTabs.vue";
+import AddATrip from "@/components/cardsComponents/AddATrip.vue";
+
 export default {
   name: "TripItemList",
-  components: {TripTabs},
+  components: { AddATrip, TripTabs},
   emits: "delete-it",
   props: {
     type: TravelEvent
@@ -22,14 +33,29 @@ export default {
   },
   data() {
     return {
+      title: '',
+      tripDescription: '',
+      arrivalDate: Date,
+      returnDate: Date,
+      travelCountry: '',
+      key: Number,//random large number,
+      favorite: Boolean,
+      newTrip: {
+        title: '',
+        tripDescription: '',
+        arrivalDate: Date,
+        returnDate: Date,
+        travelCountry: '',
+        favorite: Boolean,
+        key: Number,
+      },
       isFavorite: false,
-      //filteredTrips: [...this],
-      keyword: '',
       trips: [
         new TravelEvent(new EventTrip('France Family Trip - 2018',
             'Paris was cool but not too cold for visiting the sites of the City of Lights.  France was great.',
             '03/27/2018',
             '04/02/2018',
+            'France',
             '1',
             true,
             [
@@ -44,7 +70,7 @@ export default {
                     new Photo('./FR_Eiffel.jpg', 'here we are'),
                     new Photo('./FR_02.png', 'smiles'),
                     new Photo('./FR_03.png', 'landmark'),
-                    new Photo('./FR_Eiffel.jpg','here we are'),
+                    new Photo('./FR_Eiffel.jpg', 'here we are'),
                     new Photo('./FR_02.png', 'smiles'),
                     new Photo('./FR_03.png', 'landmark'),
                     new Photo('./FR_Eiffel.jpg', 'here we are'),
@@ -76,6 +102,7 @@ export default {
             'Trip was great',
             '03/24/2019',
             '04/15/2019',
+            'Costa Rica',
             '2',
             false,
             [
@@ -113,13 +140,14 @@ export default {
             'We had fun',
             '07/09/2021',
             '07/19/2021',
+            'United States',
             '3',
             true,
             [
               new PhotoGroup
               ('Trip First Days',
                   [new Photo('./HI_01.jpg', 'caption-one'),
-                    new Photo('./HI_02.jpg','caption-two'),
+                    new Photo('./HI_02.jpg', 'caption-two'),
                     new Photo('./HI_03.jpg', 'caption-three')
                   ]),
               new PhotoGroup
@@ -140,6 +168,7 @@ export default {
             'Trip was great',
             '03/24/2015',
             '04/02/2015',
+            'United States',
             '4',
             true,
             [
@@ -166,6 +195,7 @@ export default {
             'Trip was great',
             '03/24/2016',
             '04/02/2016',
+            'United States',
             '5',
             false,
             [
@@ -192,15 +222,48 @@ export default {
       ],
     }
   },
-  computed: {},
-  methods: {},
-  search() {
-    let keyword = '';
-    if (keyword) {
-      return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
-          || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
-    }
+  computed: {
   },
+  methods: {
+    addTrip() {
+      let trips = this.trips;
+      // let key = this.getRandomInt(1, 999999999999);
+      // key;
+      let newTrip = {
+        title: String,
+        travelCountry: 'United States',
+        arrivalDate: Date,
+        returnDate: Date,
+        favorite: Boolean,
+        tripDescription: String,
+        key: Number,
+      }
+      newTrip.title = this.title;
+      newTrip.tripDescription = this.tripDescription;
+      newTrip.arrivalDate = this.arrivalDate;
+      newTrip.returnDate = this.returnDate;
+      newTrip.travelCountry = this.travelCountry;
+      newTrip.favorite = this.favorite;
+      // newTrip.key=this.key;
+
+      trips.push(newTrip);
+      return trips;
+    },
+    search() {
+      let keyword = '';
+      if (keyword) {
+        return this.trips.title.toLowerCase().includes(this.keyword.toLowerCase())
+            || this.trips.tripDescription.toLowerCase().includes(this.keyword.toLowerCase());
+      }
+    },
+
+    deleteTrip(trip) {
+      this.trips.splice(this.trips.indexOf(trip), 1);
+    },
+    getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+  }
 }
 </script>
 

@@ -1,10 +1,11 @@
-function EventTrip(title, tripDescription, arrivalDate, returnDate, key,
+function EventTrip(title, tripDescription, arrivalDate, returnDate, travelCountry, key,
                    favorite, photoGroup) {
     this.title = title ?? '';
     this.tripDescription = tripDescription ?? '';
     // add any additional properties
     this.arrivalDate = arrivalDate ?? '';
     this.returnDate = returnDate ?? '';
+    this.travelCountry = travelCountry ?? '';
     this.key = key ?? '';
     this.favorite = favorite ?? false;
     this.photoGroup = photoGroup ?? [];

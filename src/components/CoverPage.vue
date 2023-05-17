@@ -6,6 +6,11 @@
 
   Show the user fun stuff and messages here before they start looking at their trips.<br>
   Have they earned any continent badges?<br>  How many countries and continents have they visited?
+<br>
+  <br>
+  Number of Countries visited: (total countries visited from total of countries)
+  <br>Countries visited: (flag and country name)
+
 </div>
 </template>
 

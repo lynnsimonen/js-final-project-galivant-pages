@@ -2,7 +2,7 @@
   <div class="pageContainer">
     <div class="row ">
       <!-- LEFT SIDE OF SCREEN - INDIVIDUAL TRIP MENU -->
-      <div class="col col-12 col-sm-3 left-menu">
+      <div class="col col-12 col-sm-3 left-menu mb-5">
         <div class="sortButtons ">
         </div>
         <div class=" tabs ">
@@ -58,14 +58,12 @@
         </div>
         <div class="trips-container"
              v-show="showTripTabsDetails">
-
-          <add-a-trip></add-a-trip>
-
           <ul id="ul-get-the-trip-index"
               class="justify-content-center"
               v-for="(trip, index) in trips"
               :key="trip.key"
-              :trip="index">
+              :trip="index"
+          >
             <!--HERE IS THE COMPONENT AND BINDING-->
             <trip-tabs-details :trip="trip"></trip-tabs-details>
           </ul>
@@ -81,11 +79,10 @@
 import _ from "lodash";
 import TripTabsDetails from "@/components/TripTabsDetails.vue";
 import CoverPage from "@/components/CoverPage.vue";
-import AddATrip from "@/components/cardsComponents/AddATrip.vue";
 
 export default {
   name: "TripTabs",
-  components: {AddATrip,  CoverPage, TripTabsDetails},
+  components: {CoverPage, TripTabsDetails},
   props: {
     trips: Array,
   },
@@ -131,28 +128,13 @@ export default {
         }
       }
     },
-
-    // filteredTrip() {
-    //   console.log('this.tripKeyValue: ', this.trips)
-    //   if (this.tripKeyValue.trim().length > 0) {
-    //     return this.trips.filter((trip) => trip.key === this.tripKeyValue)
-    //
-    //   }
-    //   return this.trips
-
-    // searchTrips(value) {
-    //   this.clickedMenuTrip = this.clickedMenuTrip.filter((trip) =>{
-    //     return trip.key === value;
-    //   })
-    // },
-
     showTrip() {
       //showTripTabsDetails data() is false
       this.showTripTabsDetails = !this.showTripTabsDetails;
       //showCoverPage data() is true
       this.showCoverPage = !this.showCoverPage;
     },
-  }
+  },
 }
 
 </script>
