@@ -12,10 +12,19 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade modal-fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+  <div class="modal fade modal-fade"
+       v-show="showForm"
+       id="staticBackdrop"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <form @submit.prevent="$emit('add-new-trip')">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Your trip has been submitted!</strong> Check your travel badges.<br>Where to next?
+        <i class="bi bi-signpost-split" style="color:lawngreen;font-size: medium;"></i>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -100,29 +109,37 @@
                           aria-label="With textarea"></textarea>
               </div>
               <!--   key-->
-              <div class="trip-description input-group">
-                <input class="add-a-trip-input"
-                       style="background-color: #cccccc; margin-top: 10px"
-                       type="number"
-                       id="key"
-                       disabled
-                       @input="$emit('update:key', $event.target.value)"
-                       :value="key">
-              </div>
+<!--              <div class="trip-description input-group">-->
+<!--                <input class="add-a-trip-input"-->
+<!--                       style="background-color: #cccccc; margin-top: 10px"-->
+<!--                       type="number"-->
+<!--                       id="key"-->
+<!--                       disabled-->
+<!--                       @input="$emit('update:key', $event.target.value)"-->
+<!--                       :value="key">-->
+<!--              </div>-->
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn-add btn" style="background-color: lightgrey; color:white;"
-                    data-bs-dismiss="modal">Cancel
+            <button type="button"
+                    class="btn-add btn"
+                    style="background-color: lightgrey;
+                    color:white;"
+                    data-bs-dismiss="modal"
+                   >Cancel
             </button>
-            <button type="submit" class="btn-add btn"
-                    style="background-color: gray; color:white;">
+            <button type="submit"
+                    class="btn-add btn"
+                    style="background-color: gray;
+                    color:white;"
+            >
               Submit
             </button>
           </div>
         </div>
       </div>
     </form>
+    <div>
 <!--    <p>-->
 <!--      title: {{ title }}</p>-->
 <!--    <p>-->
@@ -139,12 +156,12 @@
 <!--    <p>-->
 <!--      key: {{ key }}-->
 <!--    </p>-->
-
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import {RestCountries} from "@/models/RestCountries";
 
 export default {
   name: "AddATrip",
@@ -160,6 +177,7 @@ export default {
     return {
       info: null,
       key: 0,
+      showForm: false,
     }
   },
   emits: ['update:title',
@@ -169,20 +187,11 @@ export default {
     'update:returnDate',
     'update:favorite'],
   method: {
-    // keyRandom(){
-    //   let randomKey = this.getRandomInt(1, 999999999999)
-    //   return  randomKey;
-    // }
-    showTrip() {
-      //showTripTabsDetails data() is false
-      this.showTripTabsDetails;
-      //showCoverPage data() is true
-      this.showCoverPage;
-    },
+
   },
   mounted() {
-    axios
-        .get('https://restcountries.com/v3.1/all?fields=name')
+    RestCountries
+        .listCountryNames()
         .then(response => (this.info = response.data))
     console.log(this.info);
   },

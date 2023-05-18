@@ -11,9 +11,9 @@
     <div>
       <div class="row  trip-details">
         <div class="mt-3 p-2 d-inline-flex ">
-          <i class="bi bi-star-fill mx-3"
+          <i class="this.favorite ? bi bi-star-fill mx-3 text-warning: bi bi-star mx-3 text-dark"
              style="color: goldenrod;font-size: 30px"
-             @click="this.favorite =!this.favorite"></i>
+             @click="this.favorite =!this.favorite" ></i>
           <h3 class="trip-title">
             {{ trip.title }}
           </h3>

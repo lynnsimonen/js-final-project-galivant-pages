@@ -25,9 +25,6 @@
               :key="trip.key"
               :trip="trip">
             <li>
-              <!--              <search-menu-form style="width: 100%" @submit.prevent="showTrip(keyValue)">-->
-
-              <!--                <button type="submit"-->
               <button
                   class="menu-item-trip btn row"
                   @click="showTrip">
@@ -39,11 +36,6 @@
                   {{ trip.title }}
                 </div>
               </button>
-
-              <!--                <input type="hidden" id="menuKey" name="menuKey" keyValue="{{trip.key}}"/>-->
-              <!--              </search-menu-form>-->
-
-
             </li>
           </ul>
         </div>

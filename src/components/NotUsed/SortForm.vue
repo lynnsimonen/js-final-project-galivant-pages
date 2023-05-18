@@ -28,18 +28,18 @@ export default {
     item: {type: TravelEvent},
     sortFunction: Function
   },
-  data() {
-    let sortOptions = [
-      {label: 'Trip Title', value: 'title'},
-      {label: 'Date', value: 'returnDate'},
-      {label: 'My Favorites', value: 'favorite'},
-    ];
-    return {
-      //sortOptions,
-      //sortValue: sortOptions[0],
-
-    }
-  },
+  // data() {
+  //   let sortOptions = [
+  //     {label: 'Trip Title', value: 'title'},
+  //     {label: 'Date', value: 'returnDate'},
+  //     {label: 'My Favorites', value: 'favorite'},
+  //   ];
+  //   return {
+  //     //sortOptions,
+  //     //sortValue: sortOptions[0],
+  //
+  //   }
+  // },
   methods: {
     sort() {
       console.log('this.sortValue.value:', this.sortValue.value);
