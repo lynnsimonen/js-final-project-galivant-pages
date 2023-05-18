@@ -21,7 +21,7 @@
 import TravelEvent from "@/models/travel-event-model";
 import {EventTrip, Photo, PhotoGroup} from "@/models/trip-model";
 import TripTabs from "@/components/TripTabs.vue";
-import AddATrip from "@/components/cardsComponents/AddATrip.vue";
+import AddATrip from "@/components/Auxilliary Components/AddATrip.vue";
 
 export default {
   name: "TripItemList",

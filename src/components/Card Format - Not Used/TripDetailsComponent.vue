@@ -1,5 +1,8 @@
 <template>
-  <!-- TODO: DETAILS INSIDE THE TRIP LIST CARDS -->
+
+  <!--  ***This is the card view of the trips that I decided against during creation of the app.-->
+
+  <!-- DETAILS INSIDE THE TRIP LIST CARDS -->
 
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
@@ -18,7 +21,7 @@
 <!--          {{ trip.arrivalDate }} - {{ trip.returnDate }}-->  Trip Dates
         </h6>
 
-        <!--TODO: CLICK to see THIS Trip's Details (bind the trip's key?)-->
+        <!--CLICK to see THIS Trip's Details (bind the trip's key?)-->
         <button
             class="btn btn-secondary"
             v-on:click="$emit('show')"
@@ -29,7 +32,7 @@
     </li>
     <li class="list-group-item justify-content-around">
 
-      <!--  TODO: Link other users' likes to this icon-->
+      <!--  Link other users' likes to this icon-->
       <i class="bi bi-hand-thumbs-up p-1 m-1"
       >
                <span class="p-2translate-middle badge rounded-pill bg-secondary">

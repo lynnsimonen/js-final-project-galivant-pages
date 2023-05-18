@@ -59,7 +59,7 @@
 <script>
 //---------------------------------------------------------------------------------------------------------------------------
 
-import TripDetailsComponent from "@/components/TripDetailsComponent.vue";
+import TripDetailsComponent from "@/components/Card Format - Not Used/TripDetailsComponent.vue";
 
 console.log("TRIP CARD");
 

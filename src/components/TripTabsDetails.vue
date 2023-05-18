@@ -58,12 +58,7 @@ export default {
       showTripDetails: false
     }
   },
-  methods: {
-    // hideTripContent(){
-    //   document.getElementByClassName(hideTripContent).hide;
-    // }
-
-  },
+  methods: {},
   Computed: {
     showTripDetails() {
       this.showTrip = !this.showTrip;

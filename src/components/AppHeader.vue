@@ -36,11 +36,7 @@
 <script>
 export default {
   name: "AppHeader",
-  methods:{
-    showCover() {
-      this.showCoverPage;
-    }
-  }
+  methods:{  }
 }
 </script>
 
